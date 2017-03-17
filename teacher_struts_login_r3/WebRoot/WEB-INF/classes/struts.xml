@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="default" namespace="/svse" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="loginInterceptor" class="interceptor.LoginInterceptor"></interceptor>
+
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor">
+					<param name="excludeMethods">login</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack">
+				</interceptor-ref>
+			</interceptor-stack> 
+		</interceptors>
+
+		<default-interceptor-ref name="loginStack"></default-interceptor-ref>
+
+		<global-results>
+			<result name="loginPage" type="redirect">/login.jsp</result>
+		</global-results>
+
+		<action name="login" class="action.LoginAction" method="login">
+			<result>/success.jsp</result>
+		</action>
+
+		<action name="*">
+			<result>/WEB-INF/pages/{1}.jsp</result>
+		</action>
+
+	</package>
+</struts>    
