@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+ <!-- 开发模式代码 -->
+	<constant name="struts.devMode" value="true"></constant>
+    <package name="default" namespace="/student" extends="struts-default">
+     <interceptors>
+       <!-- 导入拦截器 -->
+       <interceptor name="stop_student" class="intercept_student.LoginInterceptor_student"></interceptor>  
+       <!-- 配置拦截器 -->
+       <interceptor-stack name="theone">
+          <interceptor-ref name="stop_student">
+              <param name="excludeMethods">login_student</param>
+          </interceptor-ref>
+          <interceptor-ref name="defaultStack"></interceptor-ref>
+       </interceptor-stack>                                                      
+     </interceptors>
+    <!-- 启动拦截器 -->
+    <default-interceptor-ref name="theone"></default-interceptor-ref>
+    <global-results>
+			<result name="loginPage" type="redirect">/login.jsp</result>
+		</global-results>
+       <action name="login" class="action.LoginAction_student" method="login_student">
+         <result>/success_student.jsp</result>
+       </action>
+       <action name="dormitory_*">
+			<result>/WEB-INF/dormitory/{1}.jsp</result>
+		</action>
+    </package>
+   
+</struts>    
