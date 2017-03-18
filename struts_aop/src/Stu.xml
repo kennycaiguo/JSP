@@ -15,7 +15,7 @@
           <interceptor-ref name="defaultStack"></interceptor-ref>
        </interceptor-stack>                                                      
      </interceptors>
-    <!-- 启动拦截器 -->
+    <!-- 启动配置好的拦截器 -->
     <default-interceptor-ref name="theone"></default-interceptor-ref>
     <global-results>
 			<result name="loginPage" type="redirect">/login.jsp</result>
