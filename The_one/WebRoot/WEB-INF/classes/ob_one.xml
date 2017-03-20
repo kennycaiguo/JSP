@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts> 
+<!-- 开发模式代码 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default" namespace="/struts" extends="struts-default">
+	<action name="login" class="action.The_login" method="login_the">
+	  <result name="tologin">/login.jsp</result>
+	</action>
+	<action name="admin" class="action.The_admin" method="executer">
+	  <result name="admin_page">/WEB-INF/pages/admin_page.jsp</result>
+	  <result name="test_page">/test_page.jsp</result>
+	</action>
+	</package>
+</struts>    
