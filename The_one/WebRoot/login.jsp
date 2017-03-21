@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -38,6 +39,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </tr>
             <tr>
             <td colspan="2" align="center"><input type="reset" value="重填"/></td> 
+            </tr>
+            <tr bgcolor="#FFD700">
+               <td colspan="2" ><s:property value="#attr.erorr"/></td>
             </tr>
         </table>
       </fieldset>

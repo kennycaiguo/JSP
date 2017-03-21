@@ -9,7 +9,7 @@
 	</action>
 	<action name="admin" class="action.The_admin" method="executer">
 	  <result name="admin_page">/WEB-INF/pages/admin_page.jsp</result>
-	  <result name="test_page">/test_page.jsp</result>
+	   <result name="tologin">/login.jsp</result>
 	</action>
 	</package>
 </struts>    
