@@ -23,7 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <h1>管理页</h1>
-    欢迎登陆：<s:property value="#application.username" /><br/>
+        
+              欢迎登陆：<s:property value="#application.username" /><br/>
+                 <h2><s:property value="#attr.erorr2"/></h2><br/>
     <a href="struts/login.action">登陆</a>
     <a href="struts/register.action">注册</a>
   </body>

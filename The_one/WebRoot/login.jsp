@@ -28,11 +28,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <table align="center" width="280px" border="1" cellspacing="1" cellpadding="1">
             <tr>
               <td>账号：</td>
-              <td><input type="text" name="user.username" value="admin" size="20"/></td>
+              <td><input type="text" name="user.username" value="lium" size="20"/></td>
             </tr>
             <tr>
               <td>密码：</td>
-              <td><input type="password" name="user.password" size="21"/></td>
+              <td><input type="password" name="user.password" value="lium" size="21"/></td>
             </tr>
             <tr >
              <td colspan="2" align="center"><input type="submit" value="登录"/></td>
@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <td colspan="2" align="center"><input type="reset" value="重填"/></td> 
             </tr>
             <tr bgcolor="#FFD700">
-               <td colspan="2" ><s:property value="#attr.erorr"/></td>
+               <td colspan="2" ><s:property value="#attr.erorr1"/></td>
             </tr>
         </table>
       </fieldset>
