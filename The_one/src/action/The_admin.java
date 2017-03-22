@@ -42,12 +42,11 @@ public class The_admin{
 				return "admin_page";
 			}
 			
-		}else if (!username.equals("lium")) {
+		}else {
 			//HttpServletRequest 只转发一次
 			 request = ServletActionContext.getRequest();
 			 request.setAttribute("erorr1", "账号/密码 错误！");
 		   	return "tologin";
 	}
-		return null;		
 }
 	}

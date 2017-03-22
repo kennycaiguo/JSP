@@ -29,7 +29,6 @@ public class DBHelper {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("第一次离开DBHelper");
 		return conn;
 	}
 

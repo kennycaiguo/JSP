@@ -10,20 +10,22 @@ import utils.DBHelper;
 public class UserDao {
 	public User find(String username, String password)throws SQLException {
 		Connection conn = DBHelper.getCon();
+		
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		User user = null;
-		String sql = "select * from user where uame = ? and upsw = ?";
+		String sql = "select * from userinfo where uame = ? and upsw = ?";
 		pst = conn.prepareStatement(sql);
 		pst.setString(1, username);
+		System.out.println("username-----------------------"+username);
 		pst.setString(2, password);
+		System.out.println("password-----------------------"+password);
 		rs = pst.executeQuery();
-		if(rs.next()){
+		while(rs.next()){
 			user = new User();
-			user.setUid(rs.getInt("uid"));
-			user.setUsername(rs.getString("uame"));			
+			user.setUsername(rs.getString("uame"));	
+			System.out.println("-----------------------"+rs.getString("uame"));
 			user.setPassword(rs.getString("upsw"));
-			user.setUrealname(rs.getString("urealname"));
 		}
 		// 关闭数据库资源
 		DBHelper.closeConn(conn, pst, rs);
