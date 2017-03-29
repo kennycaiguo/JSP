@@ -10,7 +10,7 @@
   		    </field>
   		   <field name="user.password">
   		     <field-validator type="requiredstring">
-  		           <message key="page.login.password.not.null"></message>
+  		           <message key="page.login.password.error.not.null"></message>
   		    </field-validator>
   		   <field-validator type="stringlength">
   					<param name="maxLength">8</param>

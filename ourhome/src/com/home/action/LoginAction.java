@@ -1,6 +1,9 @@
 package com.home.action;
 
+import java.sql.SQLException;
+
 import com.home.modle.User;
+import com.home.service.UserServicce;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport {
@@ -11,7 +14,8 @@ public class LoginAction extends ActionSupport {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public String execute(){
+	public String execute() throws SQLException{
+		boolean verify = new UserServicce().login(user);
 		return SUCCESS;
 	}
 
