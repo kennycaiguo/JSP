@@ -24,8 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <legend>管理登录页面</legend>
         
            <table align="center" width="210px" border="1" cellspacing="1" cellpadding="1">
-              <tr><s:textfield name="user.username" key="page.login.username"/> </tr>
-              <tr><s:password name="user.password" key="page.login.password"/></tr>
+              <tr><s:textfield name="user.username" key="page.login.username" value="lium"/> </tr>
+              <tr><s:password name="user.password" key="page.login.password" value="lium"/></tr>
               <tr><s:submit value="登陆" align="center"></s:submit></tr>
            </table>
                                   <s:a href="home/" >注册</s:a>

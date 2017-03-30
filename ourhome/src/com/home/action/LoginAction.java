@@ -16,6 +16,8 @@ public class LoginAction extends ActionSupport {
 	}
 	public String execute() throws SQLException{
 		boolean verify = new UserServicce().login(user);
+		System.out.println("===================");
+		System.out.println("----------"+verify);
 		return SUCCESS;
 	}
 
