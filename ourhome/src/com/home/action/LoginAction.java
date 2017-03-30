@@ -15,10 +15,14 @@ public class LoginAction extends ActionSupport {
 		this.user = user;
 	}
 	public String execute() throws SQLException{
-		boolean verify = new UserServicce().login(user);
-		System.out.println("===================");
-		System.out.println("----------"+verify);
-		return SUCCESS;
+		boolean verify = new UserServicce().login(user);		
+		System.out.println("boolean------------------"+verify);
+		if(verify == true){
+			return SUCCESS;
+		}else{
+			return null;
+		}
+		
 	}
 
 }

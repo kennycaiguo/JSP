@@ -11,5 +11,15 @@
          <result>/WEB-INF/register/dologined.jsp</result>
          <result name="input">/WEB-INF/register/login.jsp</result>
        </action>
+       <action name="fileUpload" class="com.home.action.FileUploadAction">
+           <result>/index.jsp</result>
+           <result name="input">/error.jsp</result>
+             <interceptor-ref name="fileUpload">
+                    <param name="allowedExtensions">.jpg</param>
+                    <param name="maximumSize">10240000</param>
+             </interceptor-ref>
+            <!-- 引用系统默认的拦截器 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+       </action>
     </package>
 </struts>    

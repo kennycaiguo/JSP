@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -18,6 +19,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  欢迎，${user.username }，登陆 <br>
+      欢迎，${user.username }，登陆 <br>
+   <form action="home/fileUpload.action" enctype="multipart/form-data"	method="post">
+      选择上传文件
+       <input type="file" name="pic"/>
+       <input type="submit" value="上传"/>
+       <hr/>
+       <s:fielderror></s:fielderror>
+   </form>
   </body>
 </html>

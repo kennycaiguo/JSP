@@ -29,6 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <tr><s:submit value="登陆" align="center"></s:submit></tr>
            </table>
                                   <s:a href="home/" >注册</s:a>
+           <hr/>
+           ${doc.picFileName }上传成功                       
     </s:form> 
   </body>
 </html>

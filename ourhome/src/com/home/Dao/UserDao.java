@@ -14,7 +14,7 @@ public class UserDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		String sql = "select * from Userinfo where uame = ? and upsw = ?";
-		  pst = conn.prepareStatement(sql);
+		pst = conn.prepareStatement(sql);
 		pst.setString(1,user.getUsername());
 		pst.setString(2,user.getPassword());
 		rs = pst.executeQuery();
