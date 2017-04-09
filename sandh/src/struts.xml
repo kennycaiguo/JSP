@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <constant name="struts.devMode" value="true"></constant>
+	
+    <package name="default" namespace="/sandh" extends="struts-default">
+       <action name="pre_login" class="com.sandh.action.LoginAction" method="tologin">
+         <result>/WEB-INF/goto/login.jsp</result>
+       </action>
+       <action name="list_login" class="com.sandh.action.LoginAction" method="list_login">
+         <result>/WEB-INF/goto/list_login.jsp</result>
+       </action>
+    </package>
+</struts>    

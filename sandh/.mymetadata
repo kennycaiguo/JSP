@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="sandh"
+  id="myeclipse.1491705461673"
+  context-root="/sandh"
+  j2ee-spec="5.0"
+  archive="sandh.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
