@@ -19,7 +19,7 @@
 		</property>
 		<property name="myeclipse.connection.profile">oracle</property>
 		<property name="show_sql">true</property>
-		<mapping resource="com/sandh/bean/TUser.hbm.xml" />
+		<mapping resource="com/sandh/bean/Student.hbm.xml" />
 
 	</session-factory>
 

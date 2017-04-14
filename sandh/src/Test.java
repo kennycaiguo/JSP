@@ -3,12 +3,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.sandh.bean.TUser;
+import com.sandh.bean.Student;
 
 
 
 public class Test {
-        public void addUser(TUser user){
+        public void addUser(Student user){
 //        	读取配置文件
         	Configuration config = new Configuration().configure();
 //        	创建SessionFactory
@@ -26,9 +26,9 @@ public class Test {
         }
         public static void main(String[] args){
         	Test test= new Test();
-        	TUser user = new TUser();
-        	user.setUName("sadfasdf");
-        	user.setUPwd("1231");
+        	Student user = new Student();
+//        	user.setUName("sadfasdf");
+//        	user.setUPwd("1231");
         	test.addUser(user);
         }
 }

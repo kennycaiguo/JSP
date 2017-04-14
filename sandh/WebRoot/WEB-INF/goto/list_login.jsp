@@ -24,21 +24,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    进入展示页面 <br>
-    <tr>
-       <td>序号</td>
-       <td>用户名</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <td>密码</td>
-    </tr><br/>
-    
-    <s:iterator value="loginList" var="user">
-       
-    	<s:property value="#user.UId"/>&nbsp;&nbsp;&nbsp;&nbsp;
-    	<s:property value="#user.UName"/>&nbsp;&nbsp;&nbsp;&nbsp;
-    	<s:property value="#user.UPwd"/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-    	
-    </s:iterator>
-    <hr/>
+  <h1 align="center">三职个人详细信息查询平台</h1>
+		<table border="1" align="center">
+			<tr>
+				<td>索引</td>
+				<td>名字</td>
+				<td>专业</td>
+				<td>常住地</td>
+			</tr>
+			<s:iterator value="loginList" var="cv" status="s">
+				<tr bgcolor="<s:if test="#s.even">pink</s:if>">
+					<td><s:property value="#s.getCount()" />
+					</td>
+					<td><a href="sandh/detail.action?SId=${cv.SId }"><s:property value="#cv.SName"/></a>
+					</td>
+					<td><a href="sandh/detail.action?SClass='${cv.SClass}'"><s:property value="#cv.SClass"/></a>
+					</td>
+					<td><s:property value="#cv.SAddress"/>
+					</td>
+				</tr>
+			</s:iterator>
+		</table> 
+		 <hr/>
     <a href="">用户信息添加</a>
   </body>
 </html>
