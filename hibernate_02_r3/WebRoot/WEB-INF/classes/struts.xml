@@ -3,26 +3,17 @@
 <struts>
 
 	<package name="default" namespace="/svse" extends="struts-default">
-		
+
 		<action name="User_pre_*">
 			<result>/User/{1}.jsp</result>
 		</action>
 		
-		<action name="User_pre_update" class="action.UserAction" method="preUpdate">
-			<result>/User/update.jsp</result>
-		</action>
-		
-		<action name="User_list" class="action.UserAction" method="list">
+		<action name="User_*" class="action.UserAction" method="{1}">
 			<result>/User/list.jsp</result>
 		</action>
-		
-		<action name="User_*" class="action.UserAction" method="{1}">
-			<result type="redirectAction">User_list</result>
-		</action>
-		
-		<action name="User_detail" class="action.UserAction" method="detail">
-			<result>/User/detail.jsp</result>
-		</action>
-		
+        
+        <action name="personAction" class="action.UserAction" method="list">
+             <result>/User/list.jsp</result>
+        </action>
 	</package>
 </struts>    

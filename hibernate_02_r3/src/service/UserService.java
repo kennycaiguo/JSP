@@ -2,14 +2,14 @@ package service;
 
 import java.util.List;
 
-import bean.TUser;
+import bean.Emp;
 import dao.UserDao;
 
 public class UserService {
 
 	UserDao dao = new UserDao();
 	
-	public void add(TUser tUser) {
+	public void add(Emp tUser) {
 		
 		dao.add(tUser);
 	}
@@ -17,21 +17,6 @@ public class UserService {
 	public List list() {
 		
 		return dao.list();
-	}
-
-	public TUser getOne(Long id) {
-
-		return dao.getOne(id);
-	}
-
-	public void update(TUser tUser) {
-		
-		dao.update(tUser);
-	}
-
-	public void del(TUser tUser) {
-
-		dao.del(tUser);
 	}
 
 }

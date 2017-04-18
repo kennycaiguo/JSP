@@ -7,14 +7,12 @@
 <hibernate-configuration>
 
 	<session-factory>
-		<property name="dialect">
-			org.hibernate.dialect.Oracle10gDialect
-		</property>
+		<property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
 		<property name="connection.url">
 			jdbc:oracle:thin:@127.0.0.1:1521:orcl
 		</property>
-		<property name="connection.username">htest</property>
-		<property name="connection.password">htest</property>
+		<property name="connection.username">scott</property>
+		<property name="connection.password">orcl</property>
 		<property name="connection.driver_class">
 			oracle.jdbc.driver.OracleDriver
 		</property>
@@ -22,8 +20,8 @@
 			OracleDriver
 		</property>
 		<property name="show_sql">true</property>
-
-		<mapping resource="bean/TUser.hbm.xml" />
+		<mapping resource="bean/Emp.hbm.xml" />
+		<mapping resource="bean/Dept.hbm.xml" />
 
 	</session-factory>
 

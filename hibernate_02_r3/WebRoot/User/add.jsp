@@ -24,8 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <form action="svse/User_add.action">
-    	帐号<input type="text" name="UName" /><br/>
-    	密码<input type="password" name="UPwd" /><br/>
+    	帐号<input type="text" name="TName" /><br/>
+    	密码<input type="password" name="TPwd" /><br/>
     	<input type="submit" value="保存" />
     </form>
   </body>

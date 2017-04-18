@@ -7,7 +7,10 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import bean.TUser;
+import service.PersonService;
+
+import bean.Emp;
+import bean.PageBean;
 
 public class HibernateUtil {
 
@@ -33,6 +36,8 @@ public class HibernateUtil {
 		try{
 			s = HibernateSessionFactory.getSession();
 			Query query = s.createQuery(hql);
+			query.setFirstResult(0);
+			query.setMaxResults(5);
 			list = query.list();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -41,49 +46,73 @@ public class HibernateUtil {
 		}
 		return list;
 	}
+	
+	/**
+     * 通过hql语句得到数据库中记录总数
+     */
+	 public int getAllRowCount(String hql)
+	    {
+	        Session s = null;
+	        Transaction tx = null;
+	        int allRows = 0;
+	        try
+	        {
+	        	s=HibernateSessionFactory.getSession();
+	            tx = s.beginTransaction();
+	            Query query = s.createQuery(hql);
+	            allRows = query.list().size();
+	            tx.commit();
+	        }
+	        catch (Exception e)
+	        {
+	            if(tx != null)
+	            {
+	                tx.rollback();
+	            }
+	            
+	            e.printStackTrace();
+	        }
+	        finally
+	        {
+	            s.close();
+	        }
+	        
+	        return allRows;
+	    }
+	 
+	 /**
+	     * 使用hibernate提供的分页功能，得到分页显示的数据
+	     */
+	    public List<Emp> queryByPage(String hql, int offset, int pageSize)
+	    {
+	        Session s = null;
+	        Transaction tx = null;
+	        List<Emp> list = null;
+	        try
+	        {
+	        	s=HibernateSessionFactory.getSession();
+	            tx = s.beginTransaction();
+	            Query query = s.createQuery(hql);
+	            query.setFirstResult(offset);
+				query.setMaxResults(pageSize);
+	            list = query.list();
+	            tx.commit();
+	        }
+	        catch (Exception e)
+	        {
+	            if(tx != null)
+	            {
+	                tx.rollback();
+	            }
+	            
+	            e.printStackTrace();
+	        }
+	        finally
+	        {
+	        	s.close();
+	        }
+	        return list;
+	    }
 
-	public static Object getOne(Class class1, Long id) {
-		Object obj = null;
-		Session s = null;
-		Transaction tx = null;		
-		try{
-			s = HibernateSessionFactory.getSession();
-			obj = s.get(class1, id);
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			s.close();
-		}
-		return obj;
-	}
 
-	public static void update(Object obj) {
-		Session s = null;
-		Transaction tx = null;		
-		try{
-			s = HibernateSessionFactory.getSession();
-			tx = s.beginTransaction();
-			s.update(obj);
-			tx.commit();
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			s.close();
-		}		
-	}
-
-	public static void del(Object obj) {
-		Session s = null;
-		Transaction tx = null;		
-		try{
-			s = HibernateSessionFactory.getSession();
-			tx = s.beginTransaction();
-			s.delete(obj);
-			tx.commit();
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			s.close();
-		}				
-	}
 }
